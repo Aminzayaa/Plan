@@ -46,7 +46,7 @@ public class AuthController {
             return "login";
         }
     }
-
+// hello world
     @PostMapping("/logout") // Updated to handle POST requests
     public String logout() {
         session.invalidate();
