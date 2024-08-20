@@ -15,9 +15,5 @@
         <li><a href="workPlan">Work Plan</a></li>
         <li><a href="perPlan">Personal Plan</a></li>
     </ul>
-    
-     	<form action="${pageContext.request.contextPath}/logout" method="post">
-        <button type="submit">Logout</button>
-   		</form>
 </body>
 </html>
