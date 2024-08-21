@@ -11,4 +11,10 @@ public interface UserService {
 
 	public User authentication(String login_id, String password);
 	
+	public int insertUser(User user);
+
+	public User findByUserId(Integer userId);
+
+	public int updateUser(User user);
+
 	}
