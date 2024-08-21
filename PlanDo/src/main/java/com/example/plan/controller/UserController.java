@@ -146,33 +146,6 @@ public class UserController {
             model.addAttribute("errMsg", "Failed to update user information.");
             return "profile";
         }
-//    @PostMapping("/editUser")
-//    public String editUser(UserForm form, Model model) {
-//        // Validate that passwords match
-////        String password = form.getPassword();
-////        String reentryPassword = form.getReentryPassword();
-////
-////        if (!password.equals(reentryPassword)) {
-////            model.addAttribute("errMsg", "Passwords does not match.");
-////            return "accountEdit";
-////        }
-//
-//        // Update the user details
-//        User user = new User();
-//        user.setUserId(form.getUser_id());
-//        user.setLoginId(form.getLogin_id());
-//        user.setName(form.getName());
-//        user.setPassword(form.getPassword());
-//        user.setEmail(form.getEmail());
-//        user.setPhone_number(form.getPhone_number());
-//        int result = userService.updateUser(user);
-//        if (result > 0) {
-//            model.addAttribute("successMsg", "Profile information updated successfully.");
-//            return "redirect:/menu";
-//        } else {
-//            model.addAttribute("errMsg", "Failed to update account information.");
-//            return "editUser";
-//        }
     }
     }
 
