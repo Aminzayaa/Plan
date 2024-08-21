@@ -13,9 +13,7 @@ import jakarta.servlet.http.HttpSession;
 import com.example.plan.entity.SessionInfo;
 import com.example.plan.entity.User;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+
 import com.example.plan.util.ParamUtil;
 
 @Controller
@@ -46,7 +44,7 @@ public class AuthController {
             return "login";
         }
     }
-// hello world
+
     @PostMapping("/logout") // Updated to handle POST requests
     public String logout() {
         session.invalidate();

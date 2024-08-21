@@ -9,7 +9,7 @@ public class User {
     public User() {
     }
 
-    public User(Integer user_id, String login_id, String name, String password, String role) {
+    public User(Integer user_id, String login_id, String name, String password) {
         System.out.println(name);
         this.user_id = user_id;
         this.login_id = login_id;

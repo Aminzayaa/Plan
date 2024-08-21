@@ -5,19 +5,12 @@ import java.io.Serializable;
 public class SessionInfo implements Serializable {
 private static final long serialVersionUID = 1L;
 
-
-
     private User loginUser; 
-
     private User registerUser; 
-
     private User prevUpdateUser; 
-
     private User updateUser;
-
     // Default constructor
     public SessionInfo() {
-
     }
 
     // Constructor with loginUser initialization
@@ -27,7 +20,6 @@ private static final long serialVersionUID = 1L;
     }
     // Getters and Setters
     public User getLoginUser() {
-
         return loginUser;
 
     }

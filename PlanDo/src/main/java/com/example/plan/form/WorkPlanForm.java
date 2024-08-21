@@ -2,7 +2,7 @@ package com.example.plan.form;
 
 import java.time.LocalDate;
 
-public class PerPlanForm {
+public class WorkPlanForm {
 	
 	
 	private int planId;
