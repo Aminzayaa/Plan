@@ -4,17 +4,26 @@ public class User {
     private String login_id;
     private String name;
     private String password;
+    private String email;
+    private Integer phone_number;
+    
 
 
     public User() {
     }
 
+<<<<<<< HEAD
+    public User(Integer user_id, String login_id, String name, String password, String email, Integer phone_number) {
+=======
     public User(Integer user_id, String login_id, String name, String password) {
+>>>>>>> 406cf891ccfa8792b0a7612a3c8d8d84d11180df
         System.out.println(name);
         this.user_id = user_id;
         this.login_id = login_id;
         this.name = name;
         this.password = password;
+        this.email= email;
+        this.phone_number= phone_number;
         
     }
 
@@ -42,7 +51,7 @@ public class User {
         this.name = name;
     }
 
-    public String getPasword() {
+    public String getPassword() {
         return password;
     }
 
@@ -52,6 +61,25 @@ public class User {
 
 
     public String getUser() {
-        return "User [id=" + user_id + ", name=" + name + ", login_id=" + login_id + "]";
+        return "User [id=" + user_id + ", name=" + name + ", login_id=" + login_id + ", email=" + email + ", phone_number=" + phone_number + ",]";
     }
-}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public Integer getPhone_number() {
+		return phone_number;
+	}
+
+	public void setPhone_number(Integer phone_number) {
+		this.phone_number = phone_number;
+	}
+
+
+	}
+

@@ -12,13 +12,16 @@
     <h1>Welcome, ${sessionScope.loggedInUser}</h1>
     <ul>
 
-        <li><a href="account">Profile</a></li>
+        <!-- <li><a href="register">Register</a></li> -->
+        <li><a href="profile">Profile</a></li>
         <li><a href="workPlan">Work Plan</a></li>
         <li><a href="perPlan">Personal Plan</a></li>
+       
     </ul>
     
      	<form action="${pageContext.request.contextPath}/logout" method="post">
         <button type="submit">Logout</button>
    		</form>
+   		
 </body>
 </html>
