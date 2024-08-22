@@ -9,7 +9,7 @@
 </head>
 <body>
     <h3>Menu</h3>
-    
+    <h1>Welcome, ${sessionScope.loggedInUser}</h1>
     <ul>
 
         <li><a href="account">Profile</a></li>

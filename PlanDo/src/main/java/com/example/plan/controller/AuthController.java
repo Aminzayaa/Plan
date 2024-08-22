@@ -32,6 +32,7 @@ public class AuthController {
 
     @PostMapping("/login")
     public String handleLoginForm(LoginForm loginForm, Model model) {
+        
         User user = userService.authentication(loginForm.getLogin_id(), loginForm.getPassword());
         if (user != null) {
             SessionInfo sessionInfo = ParamUtil.getSessionInfo(session);

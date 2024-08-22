@@ -14,7 +14,6 @@
 <h1>Personal Plan</h1>
 
 <table border="1">
-    
     <thead>
         <tr>
             <th>ID</th>
@@ -23,45 +22,59 @@
             <th>Start Date</th>
             <th>End Date</th>
             <th>Status</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
         <c:forEach items="${perPlanList}" var="perPlan">
             <tr>
-                <td>${fn:escapeXml(perPlan.planId)}</td> 
+                <td>${fn:escapeXml(perPlan.planId)}</td>
                 <td>${fn:escapeXml(perPlan.title)}</td>
                 <td>${fn:escapeXml(perPlan.description)}</td>
-                <td>${fn:escapeXml(perPlan.startDate)}</td> 
+                <td>${fn:escapeXml(perPlan.startDate)}</td>
                 <td>${fn:escapeXml(perPlan.endDate)}</td>
                 <td>${fn:escapeXml(perPlan.status)}</td>
+                <td>
+                    <!-- Edit and Delete actions -->
+                    <form action="/edit" method="post" style="display:inline;">
+                        <input type="hidden" name="planId" value="${perPlan.planId}">
+                        <input type="hidden" name="title" value="${perPlan.title}">
+                        <input type="hidden" name="description" value="${perPlan.description}">
+                        <input type="hidden" name="startDate" value="${perPlan.startDate}">
+                        <input type="hidden" name="endDate" value="${perPlan.endDate}">
+                        <button type="submit">Edit</button>
+                    </form>
+                    <form action="/delete" method="post" style="display:inline;">
+                        <input type="hidden" name="planId" value="${perPlan.planId}">
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
             </tr>
         </c:forEach>
+        
+        <!-- Row for adding a new plan -->
+        <tr>
+            <form action="/add" method="post">
+                <td></td> <!-- Leave ID blank, it will be auto-generated -->
+                <td><input type="text" name="title" placeholder="Title" required></td>
+                <td><input type="text" name="description" placeholder="Description" required></td>
+                <td><input type="date" name="startDate" required></td>
+                <td><input type="date" name="endDate" required></td>
+                <td>
+                    <select name="status" required>
+                        <option value="Pending">Pending</option>
+                        <option value="Ongoing">Ongoing</option>
+                        <option value="Completed">Completed</option>
+                    </select>
+                </td>
+                <td><button type="submit">Add</button></td>
+            </form>
+        </tr>
     </tbody>
 </table>
 
 <br>
-
-<!-- Form for Add, Edit, Delete -->
-<!-- <form action="/plans/action" method="post">
-    <input type="hidden" name="planId" value="${planId}" />
-    <button type="submit" name="action" value="add">Add</button>
-    <button type="submit" name="action" value="edit">Edit</button>
-    <button type="submit" name="action" value="delete">Delete</button>
-</form> -->
-
-<form action="/edit" method="post">
-    <button type="submit" >edit</button>
-</form>
-<form action="/add" method="post">
-    <button type="submit" >add</button>
-</form>
-<form action="/delete" method="post">
-    <button type="submit" >delete</button>
-</form>
-
-<br>
 <a href="/menu">Back</a>
-<br>
 
 </body>
 </html>

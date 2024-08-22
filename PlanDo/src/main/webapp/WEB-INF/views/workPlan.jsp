@@ -42,14 +42,14 @@
 <br>
 
 <!-- Form for Add, Edit, Delete -->
-<!-- <form action="/plans/action" method="post">
+<form action="/action" method="post">
     <input type="hidden" name="planId" value="${planId}" />
-    <button type="submit" name="action" value="add">Add</button>
-    <button type="submit" name="action" value="edit">Edit</button>
-    <button type="submit" name="action" value="delete">Delete</button>
-</form> -->
+    <button type="submit" name="add" value="add">Add</button>
+    <button type="submit" name="edit" value="edit">Edit</button>
+    <button type="submit" name="delete" value="delete">Delete</button>
+</form>
 
-<form action="/edit" method="post">
+<!-- <form action="/edit" method="post">
     <button type="submit" >edit</button>
 </form>
 <form action="/delete" method="post">
@@ -57,7 +57,7 @@
 </form>
 <form action="/add" method="post">
     <button type="submit" >add</button>
-</form>
+</form> -->
 
 <br>
 <a href="/menu">Back</a>

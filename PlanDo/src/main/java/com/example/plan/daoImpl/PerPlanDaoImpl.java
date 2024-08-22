@@ -26,6 +26,16 @@ public class PerPlanDaoImpl implements PerPlanDao {
 					
 	    }
 		
-    	
+        @Override
+        public void save(PerPlan perPlan) {
+            String sql = "INSERT INTO perplan (title, description, start_date, end_date, status) VALUES (?, ?, ?, ?, ?)";
+            jdbcTemplate.edit(sql, perPlan.getTitle(), perPlan.getDescription(), perPlan.getStartDate(), perPlan.getEndDate(), perPlan.getStatus());
+        }
+
+        @Override
+        public void deleteById(Long planId) {
+            // TODO Auto-generated method stub
+            throw new UnsupportedOperationException("Unimplemented method 'deleteById'");
+        }
 
 }
