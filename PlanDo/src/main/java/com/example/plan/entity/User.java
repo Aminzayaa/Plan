@@ -12,7 +12,11 @@ public class User {
     public User() {
     }
 
+<<<<<<< HEAD
     public User(Integer user_id, String login_id, String name, String password, String email, Integer phone_number) {
+=======
+    public User(Integer user_id, String login_id, String name, String password) {
+>>>>>>> 406cf891ccfa8792b0a7612a3c8d8d84d11180df
         System.out.println(name);
         this.user_id = user_id;
         this.login_id = login_id;

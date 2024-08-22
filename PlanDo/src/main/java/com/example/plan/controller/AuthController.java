@@ -69,8 +69,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import jakarta.servlet.http.HttpSession;
 import com.example.plan.entity.SessionInfo;
 import com.example.plan.entity.User;
+<<<<<<< HEAD
 import com.example.plan.form.LoginForm;
 import com.example.plan.service.UserService;
+=======
+import org.springframework.web.bind.annotation.PostMapping;
+
+>>>>>>> 406cf891ccfa8792b0a7612a3c8d8d84d11180df
 import com.example.plan.util.ParamUtil;
 
 @Controller

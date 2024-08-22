@@ -1,11 +1,9 @@
-package com.example.plan.form;
+package com.example.plan.entity;
 
 import java.time.LocalDate;
 
-public class PerPlanForm {
-	
-	
-	private int planId;
+public class PerPlan {
+    private int planId;
     private int userId;
     private String title;
     private String description;
