@@ -8,8 +8,5 @@ public interface PerPlanDao {
 
 	public List<PerPlan> findAll();
 
-    public void deleteById(Long planId);
-
-    public void save(PerPlan perPlan);
     
 }

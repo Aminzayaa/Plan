@@ -67,9 +67,4 @@ public class PerPlan {
     public void setStatus(String status) {
         this.status = status;
     }
-
-	public static Object findById(Long planId2) {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'findById'");
-	}
 }
