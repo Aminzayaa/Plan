@@ -30,16 +30,7 @@ public class PerPlanController {
 	    private PerPlanService perPlanService;
 	
 
-//	    @GetMapping("/perPlan")
-//	    public String perPlan(Model model) {
-//
-//			SessionInfo sessionInfo = ParamUtil.getSessionInfo(session);
-//        	User loginUser = sessionInfo.getLoginUser();
-//
-//	        List<PerPlan> perPlanList = perPlanService.findAll();
-//	        model.addAttribute("perPlanList", perPlanList);
-//	        return "perPlan";
-//		}
+
 	 @GetMapping("/perPlan")
 	 public String perPlan(Model model) {
 	     // Get the logged-in user's information
@@ -52,7 +43,7 @@ public class PerPlanController {
 
 	     return "perPlan";
 	 }
-
+//------
 		 @PostMapping("/delete")
    		 public String deletePlan(@RequestParam("plan_id") int plan_id) {
         	perPlanService.deletePlan(plan_id);
