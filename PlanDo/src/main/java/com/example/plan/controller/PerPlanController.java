@@ -28,6 +28,7 @@ public class PerPlanController {
 
 	 @Autowired
 	    private PerPlanService perPlanService;
+<<<<<<< HEAD
 	
 
 
@@ -58,6 +59,36 @@ public class PerPlanController {
 			return "edit"; // This maps to edit.jsp
 		}
 	
+=======
+	
+
+		@GetMapping("/perPlan")
+		public String perPlan(Model model) {
+			// Get the logged-in user's information
+			SessionInfo sessionInfo = ParamUtil.getSessionInfo(session);
+			User loginUser = sessionInfo.getLoginUser();
+
+	        List<PerPlan> perPlanList = perPlanService.findAll();
+	        model.addAttribute("perPlanList", perPlanList);
+	        return "perPlan";
+		}
+		
+
+		 @PostMapping("/delete")
+   		 public String deletePlan(@RequestParam("plan_id") int plan_id) {
+        	perPlanService.deletePlan(plan_id);
+        	return "redirect:/perPlan";
+    	}
+
+
+		@PostMapping("/edit")
+		public String editPlan(@RequestParam("plan_id") int planId, Model model) {
+			PerPlan plan = perPlanService.findPlanById(planId);
+			model.addAttribute("plan", plan);
+			return "edit"; // This maps to edit.jsp
+		}
+	
+>>>>>>> e2ffcf41e32774883e98fb07b0e746a2ac342681
 		// Handle form submission for updating the plan
 		@PostMapping("/update")
 		public String updatePlan(@ModelAttribute PerPlan perPlan) {
@@ -75,3 +106,4 @@ public class PerPlanController {
 
 
 }
+

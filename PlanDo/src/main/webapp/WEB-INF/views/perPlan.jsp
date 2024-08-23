@@ -98,6 +98,7 @@
 <div class="container">
     <h1>Personal Plan</h1>
 
+<<<<<<< HEAD
     <!-- Existing Plan List -->
     <c:forEach items="${perPlanList}" var="perPlan">
         <div class="plan-card">
@@ -136,6 +137,45 @@
     </div>
     
 
+=======
+    
+    <c:forEach items="${perPlanList}" var="perPlan">
+        <div class="plan-card">
+            <h2>${fn:escapeXml(perPlan.title)}</h2>
+            <p>${fn:escapeXml(perPlan.description)}</p>
+            <p class="dates">Start Date: ${fn:escapeXml(perPlan.startDate)} | End Date: ${fn:escapeXml(perPlan.endDate)}</p>
+            <div class="status">Status: ${fn:escapeXml(perPlan.status)}</div>
+            <div class="actions">
+                <form action="${pageContext.request.contextPath}/edit" method="post" style="display: inline;">
+                    <input type="hidden" name="plan_id" value="${perPlan.plan_id}">
+                    <button type="submit">Edit</button>
+                </form>
+                <form action="${pageContext.request.contextPath}/delete" method="post" style="display: inline;" onsubmit="return confirm('Are you sure you want to delete this plan?');">
+                    <input type="hidden" name="plan_id" value="${perPlan.plan_id}">
+                    <button type="submit">Delete</button>
+                </form>
+            </div>
+        </div>
+    </c:forEach>
+
+    <div class="add-plan">
+        <form action="${pageContext.request.contextPath}/addPlan" method="post">
+            <input type="text" name="title" placeholder="Title" required>
+            <input type="text" name="description" placeholder="Description" required>
+            <input type="date" name="startDate" required>
+            <input type="date" name="endDate" required>
+            <select name="status" required>
+                <option value="Pending">Pending</option>
+                <option value="Ongoing">Ongoing</option>
+                <option value="Completed">Completed</option>
+            </select>
+            <input type="hidden" name="user_id" value="1"> <!-- Adjust the value as needed -->
+            <button type="submit">Add Plan</button>
+        </form>
+    </div>
+    
+
+>>>>>>> e2ffcf41e32774883e98fb07b0e746a2ac342681
     <div class="back-link">
         <a href="${pageContext.request.contextPath}/menu">Back to Menu</a>
     </div>

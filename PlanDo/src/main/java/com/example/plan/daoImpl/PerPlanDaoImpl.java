@@ -49,8 +49,11 @@ public class PerPlanDaoImpl implements PerPlanDao {
         return jdbcTemplate.queryForObject(sql, params, new BeanPropertyRowMapper<>(PerPlan.class));
     }
 		
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> e2ffcf41e32774883e98fb07b0e746a2ac342681
     @Override
     public List<PerPlan> findPlansByUserId(Integer user_id) {
         String sql = "SELECT * FROM perplan WHERE user_id = :user_id ORDER BY start_date";
@@ -58,6 +61,10 @@ public class PerPlanDaoImpl implements PerPlanDao {
         params.addValue("user_id", user_id);
         return jdbcTemplate.query(sql, params, new BeanPropertyRowMapper<>(PerPlan.class));
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> e2ffcf41e32774883e98fb07b0e746a2ac342681
     @Override
     public PerPlan findById(int planId) {
         String sql = "SELECT * FROM perplan WHERE plan_id = :plan_id";
@@ -91,4 +98,8 @@ public class PerPlanDaoImpl implements PerPlanDao {
         params.addValue("status", perPlan.getStatus());
         jdbcTemplate.update(sql, params);
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> e2ffcf41e32774883e98fb07b0e746a2ac342681

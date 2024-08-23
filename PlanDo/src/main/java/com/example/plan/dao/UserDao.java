@@ -10,13 +10,13 @@ public interface UserDao {
 
 	public User findByLoginIdAndPassword(String login_id, String password);
 	
-	 public int insertUser(User user);
+	public int insertUser(User user);
 	    
-	    public void delete(Integer id);
+	public void delete(Integer id);
 	    
-		public int updateUser(User user);
+	public int updateUser(User user);
 
-		public User findByUserId(Integer userId);
+	public User findByUserId(Integer userId);
 
 		
 }

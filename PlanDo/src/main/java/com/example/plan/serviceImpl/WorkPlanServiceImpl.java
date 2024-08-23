@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.example.plan.dao.WorkPlanDao;
 import com.example.plan.entity.WorkPlan;
 import com.example.plan.service.WorkPlanService;
@@ -19,7 +18,45 @@ public class WorkPlanServiceImpl implements WorkPlanService {
     public List<WorkPlan> findAll() {
         return workPlanDao.findAll();
     }
+    @Override
+    public List<WorkPlan> findByUserId(Long plan_id) {
+        throw new UnsupportedOperationException("Unimplemented method 'findByUserId'");
+    }
+    @Override
+    public void deletePlan(int plan_id) {
+        workPlanDao.deleteByPlanId(plan_id);
+    }
 
- 
+    @Override
+    public List<WorkPlan> findPlansByUserId(Integer user_id) {
+        return workPlanDao.findPlansByUserId(user_id);
+    }
+
+    @Override
+    public WorkPlan findPlanById(int plan_id) {
+        return workPlanDao.findById(plan_id);
+    }
+
+    @Override
+    public void edit(WorkPlan workPlan) {
+        workPlanDao.update(workPlan);  
+    }
+
+    @Override
+    public void addPlan(WorkPlan workPlan) {
+        workPlanDao.add(workPlan); 
+    }
+    @Override
+    public void save(WorkPlan newPlan) {
+        throw new UnsupportedOperationException("Unimplemented method 'save'");
+    }
+    @Override
+    public void update(WorkPlan workPlan) {
+        throw new UnsupportedOperationException("Unimplemented method 'update'");
+    }
+    @Override
+    public WorkPlan findById(Long plan_id) {
+        throw new UnsupportedOperationException("Unimplemented method 'findById'");
+    }
  
 }

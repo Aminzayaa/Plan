@@ -25,14 +25,18 @@ public class AuthController {
     public String login(Model model) {
         model.addAttribute("loginForm", new LoginForm());
         return "login";
+
     }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> e2ffcf41e32774883e98fb07b0e746a2ac342681
     @PostMapping("/login")
     public String handleLoginForm(LoginForm loginForm, Model model) {
         // Validate that login_id and password are not null or empty
         if (loginForm.getLogin_id() == null || loginForm.getLogin_id().isEmpty() ||
             loginForm.getPassword() == null || loginForm.getPassword().isEmpty()) {
-            
             model.addAttribute("errMsg", "Please insert value!");
             return "login"; // Return to login page with error message
         }
@@ -51,7 +55,10 @@ public class AuthController {
             return "login";
         }
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> e2ffcf41e32774883e98fb07b0e746a2ac342681
     public void storeLoginUserInSession(User user) {
         // Retrieve the existing SessionInfo object or create a new one
         SessionInfo sessionInfo = (SessionInfo) session.getAttribute("sessionInfo");
@@ -59,8 +66,14 @@ public class AuthController {
             sessionInfo = new SessionInfo();
         }
         // You can add more logic here if needed to store user details in the session
+<<<<<<< HEAD
     }
 
+=======
+
+    }
+
+>>>>>>> e2ffcf41e32774883e98fb07b0e746a2ac342681
     @PostMapping("/logout")
     public String logout() {
         session.invalidate();
@@ -70,5 +83,8 @@ public class AuthController {
     @GetMapping("/menu")
     public String menu(Model model) {
         return "menu";
+
     }
+
 }
+

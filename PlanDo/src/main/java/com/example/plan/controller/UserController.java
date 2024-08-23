@@ -1,57 +1,3 @@
-//package com.example.plan.controller;
-//
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.stereotype.Controller;
-//import org.springframework.ui.Model;
-//import org.springframework.web.bind.annotation.GetMapping;
-//import org.springframework.web.bind.annotation.RequestParam;
-//
-//
-//import com.example.plan.form.LoginForm;
-//import com.example.plan.form.UserForm;
-//import com.example.plan.service.UserService;
-//import com.example.plan.util.ParamUtil;
-//
-//import jakarta.servlet.http.HttpSession;
-//
-//import com.example.plan.entity.SessionInfo;
-//import com.example.plan.entity.User;
-//import org.springframework.web.bind.annotation.PostMapping;
-//import org.springframework.web.bind.annotation.RequestBody;
-//
-//@Controller
-//public class UserController {
-//    @Autowired
-//    private UserService userService;
-//
-//    @GetMapping("/register")
-//    public String getMethodName(Model model) {
-//        model.addAttribute("userForm", new UserForm());
-//        return "register";
-//    }
-//    @PostMapping("/user")
-//    public String postMethodName(UserForm userForm, Model model) {
-//        // Validation check for null or empty values
-//        if (userForm.getLogin_id() == null || userForm.getLogin_id().isEmpty() ||
-//            userForm.getName() == null || userForm.getName().isEmpty() ||
-//            userForm.getPassword() == null || userForm.getPassword().isEmpty() ||
-//            userForm.getEmail() == null || userForm.getEmail().isEmpty() ||
-//            userForm.getPhone_number() == null) { // Just check for null for Integer
-//
-//            model.addAttribute("errMsg", "Please insert value!");
-//            return "register"; // Return to the profile page with an error message
-//        }
-//    	
-//    	User newUser = new User(1, userForm.getLogin_id(), userForm.getName(), userForm.getPassword(),
-//    	         userForm.getEmail(), userForm.getPhone_number());
-//    	userService.insertUser(newUser);
-//    	model.addAttribute("errMsg", "Successfully registered!");
-//    	return "register";
-//
-//    }
-//
-//
-//}
 package com.example.plan.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -148,6 +94,3 @@ public class UserController {
         }
     }
     }
-
-
-
