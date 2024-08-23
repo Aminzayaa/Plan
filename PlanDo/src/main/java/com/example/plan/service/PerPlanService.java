@@ -29,4 +29,6 @@ public interface PerPlanService {
 
     void addPlan(PerPlan perPlan);
 
+    public void save(PerPlan newPlan);
+
 }

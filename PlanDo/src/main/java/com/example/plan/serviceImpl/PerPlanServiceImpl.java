@@ -48,5 +48,10 @@ public class PerPlanServiceImpl implements PerPlanService {
     public void addPlan(PerPlan perPlan) {
         perPlanDao.add(perPlan); 
     }
+    @Override
+    public void save(PerPlan newPlan) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'save'");
+    }
  
 }

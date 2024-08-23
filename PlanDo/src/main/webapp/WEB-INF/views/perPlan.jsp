@@ -119,9 +119,8 @@
         </div>
     </c:forEach>
 
-    <!-- Direct Add New Plan Form -->
     <div class="add-plan">
-        <form action="${pageContext.request.contextPath}/add" method="post">
+        <form action="${pageContext.request.contextPath}/addPlan" method="post">
             <input type="text" name="title" placeholder="Title" required>
             <input type="text" name="description" placeholder="Description" required>
             <input type="date" name="startDate" required>
@@ -131,9 +130,11 @@
                 <option value="Ongoing">Ongoing</option>
                 <option value="Completed">Completed</option>
             </select>
+            <input type="hidden" name="user_id" value="1"> <!-- Adjust the value as needed -->
             <button type="submit">Add Plan</button>
         </form>
     </div>
+    
 
     <div class="back-link">
         <a href="${pageContext.request.contextPath}/menu">Back to Menu</a>

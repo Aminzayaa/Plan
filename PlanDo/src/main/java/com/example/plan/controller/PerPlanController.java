@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -62,33 +63,12 @@ public class PerPlanController {
 		}
 
 
-		@PostMapping("/add")
-		public String addPlan(@RequestParam("title") String title,
-							  @RequestParam("description") String description,
-							  @RequestParam("startDate") LocalDate startDate,
-							  @RequestParam("endDate") LocalDate endDate,
-							  @RequestParam("status") String status,
-							  @RequestParam("user_id") int user_id,  // Ensure this is correctly passed
-							  RedirectAttributes redirectAttributes) {
-			try {
-				PerPlan newPlan = new PerPlan();
-				newPlan.setUser_id(user_id);  // Ensure this user_id exists
-				newPlan.setTitle(title);
-				newPlan.setDescription(description);
-				newPlan.setStartDate(startDate);
-				newPlan.setEndDate(endDate);
-				newPlan.setStatus(status);
-	
-				perPlanService.addPlan(newPlan);
-	
-				redirectAttributes.addFlashAttribute("message", "Plan added successfully!");
-				return "redirect:/perPlan";
-			} catch (Exception e) {
-				e.printStackTrace();
-				redirectAttributes.addFlashAttribute("error", "An error occurred while adding the plan.");
-				return "redirect:/perPlan";
-			}
-		}
+		@PostMapping("/addPlan")
+    public String addPlan(@ModelAttribute PerPlan perPlan, RedirectAttributes redirectAttributes) {
+        perPlanService.addPlan(perPlan);
+        redirectAttributes.addFlashAttribute("message", "Plan added successfully!");
+        return "redirect:/perPlan"; // Redirect to the list or overview page
+    }
 
 
 }
