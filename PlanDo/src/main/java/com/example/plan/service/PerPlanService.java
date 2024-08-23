@@ -10,7 +10,28 @@ import com.example.plan.entity.PerPlan;
 @Service
 public interface PerPlanService {
 
-	public List<PerPlan> findAll();
+	PerPlanService perPlanDao = null;
+
+    public List<PerPlan> findAll();
+
+    public List<PerPlan> findByUserId(Long plan_id);
+
+    public default List<PerPlan> getAllPlans() {
+        return perPlanDao.findAll();
+    }
+    public void deletePlan(int plan_id);
+
+//    List<PerPlan> findPlansByUserId(Integer user_id);
+    public default List<PerPlan> findPlansByUserId(Integer user_id) {
+        return perPlanDao.findPlansByUserId(user_id); // Adjust this method call according to your DAO implementation
+    }
+
+    PerPlan findPlanById(int plan_id); 
     
+    void edit(PerPlan perPlan);
+
+    void addPlan(PerPlan perPlan);
+
+    public void save(PerPlan newPlan);
 
 }

@@ -77,7 +77,7 @@ public class UserController {
     @Autowired
     HttpSession session;
 
-    // Existing register action (unchanged)
+    // Register action 
     @GetMapping("/register")
     public String getRegisterPage(Model model) {
         model.addAttribute("userForm", new UserForm());

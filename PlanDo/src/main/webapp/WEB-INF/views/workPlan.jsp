@@ -8,60 +8,136 @@
 <head>
     <meta charset="UTF-8">
     <title>Work Plan</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            color: #333;
+        }
+        .plan-card {
+            background-color: #fff;
+            border-radius: 5px;
+            margin: 15px 0;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .plan-card h2 {
+            margin: 0;
+            padding: 0;
+            color: #007BFF;
+        }
+        .plan-card p {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+        .plan-card .dates, .plan-card .status {
+            font-weight: bold;
+            color: #555;
+        }
+        .actions {
+            text-align: right;
+        }
+        .actions button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .actions button:hover {
+            background-color: #0056b3;
+        }
+        .add-plan {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .add-plan form {
+            display: inline-block;
+        }
+        .add-plan input, .add-plan select, .add-plan button {
+            margin: 5px;
+            padding: 10px;
+            border-radius: 3px;
+            border: 1px solid #ccc;
+        }
+        .add-plan button {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        .add-plan button:hover {
+            background-color: #218838;
+        }
+        .back-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .back-link a {
+            text-decoration: none;
+            color: #007BFF;
+        }
+        .back-link a:hover {
+            color: #0056b3;
+        }
+    </style>
 </head>
 <body>
 
-<h1>Work Plan</h1>
+<div class="container">
+    <h1>Work Plan</h1>
 
-<table border="1">
-    
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Start Date</th>
-            <th>End Date</th>
-            <th>Status</th>
-        </tr>
-    </thead>
-    <tbody>
-        <c:forEach items="${workPlanList}" var="workPlan">
-            <tr>
-                <td>${fn:escapeXml(workPlan.planId)}</td> 
-                <td>${fn:escapeXml(workPlan.title)}</td>
-                <td>${fn:escapeXml(workPlan.description)}</td>
-                <td>${fn:escapeXml(workPlan.startDate)}</td> 
-                <td>${fn:escapeXml(workPlan.endDate)}</td>
-                <td>${fn:escapeXml(workPlan.status)}</td>
-            </tr>
-        </c:forEach>
-    </tbody>
-</table>
+    <c:forEach items="${workPlanList}" var="workPlan">
+        <div class="plan-card">
+            <h2>${fn:escapeXml(workPlan.title)}</h2>
+            <p class="description">${fn:escapeXml(workPlan.description)}</p>
+            <p class="dates">Start Date: ${fn:escapeXml(workPlan.startDate)} | End Date: ${fn:escapeXml(workPlan.endDate)}</p>
+            <p class="status">Status: ${fn:escapeXml(workPlan.status)}</p>
+            <div class="actions">
+                <form action="/edit" method="post" style="display:inline;">
+                    <input type="hidden" name="plan_id" value="${workPlan.plan_id}">
+                    <button type="submit">Edit</button>
+                </form>
+                <form action="/delete" method="post" style="display:inline;">
+                    <input type="hidden" name="plan_id" value="${workPlan.plan_id}">
+                    <button type="submit">Delete</button>
+                </form>
+            </div>
+        </div>
+    </c:forEach>
 
-<br>
+    <div class="add-plan">
+        <form action="/add" method="post">
+            <input type="text" name="title" placeholder="Title" required>
+            <input type="text" name="description" placeholder="Description" required>
+            <input type="date" name="startDate" required>
+            <input type="date" name="endDate" required>
+            <select name="status" required>
+                <option value="Pending">Pending</option>
+                <option value="Ongoing">Ongoing</option>
+                <option value="Completed">Completed</option>
+            </select>
+            <button type="submit">Add</button>
+        </form>
+    </div>
 
-<!-- Form for Add, Edit, Delete -->
-<!-- <form action="/plans/action" method="post">
-    <input type="hidden" name="planId" value="${planId}" />
-    <button type="submit" name="action" value="add">Add</button>
-    <button type="submit" name="action" value="edit">Edit</button>
-    <button type="submit" name="action" value="delete">Delete</button>
-</form> -->
-
-<form action="/edit" method="post">
-    <button type="submit" >edit</button>
-</form>
-<form action="/delete" method="post">
-    <button type="submit" >delete</button>
-</form>
-<form action="/add" method="post">
-    <button type="submit" >add</button>
-</form>
-
-<br>
-<a href="/menu">Back</a>
-<br>
+    <div class="back-link">
+        <a href="/menu">Back</a>
+    </div>
+</div>
 
 </body>
 </html>
