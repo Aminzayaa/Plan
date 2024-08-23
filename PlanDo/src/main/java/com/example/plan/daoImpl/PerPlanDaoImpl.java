@@ -49,8 +49,6 @@ public class PerPlanDaoImpl implements PerPlanDao {
         return jdbcTemplate.queryForObject(sql, params, new BeanPropertyRowMapper<>(PerPlan.class));
     }
 		
-
-
     @Override
     public List<PerPlan> findPlansByUserId(Integer user_id) {
         String sql = "SELECT * FROM perplan WHERE user_id = :user_id ORDER BY start_date";

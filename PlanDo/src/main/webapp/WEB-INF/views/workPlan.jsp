@@ -103,15 +103,14 @@
     <c:forEach items="${workPlanList}" var="workPlan">
         <div class="plan-card">
             <h2>${fn:escapeXml(workPlan.title)}</h2>
-            <p class="description">${fn:escapeXml(workPlan.description)}</p>
+            <p>${fn:escapeXml(workPlan.description)}</p>
             <p class="dates">Start Date: ${fn:escapeXml(workPlan.startDate)} | End Date: ${fn:escapeXml(workPlan.endDate)}</p>
-            <p class="status">Status: ${fn:escapeXml(workPlan.status)}</p>
+            <div class="status">Status: ${fn:escapeXml(workPlan.status)}</div>
             <div class="actions">
-                <form action="/edit" method="post" style="display:inline;">
-                    <input type="hidden" name="plan_id" value="${workPlan.plan_id}">
+                <form action="${pageContext.request.contextPath}/workPlan/edit" method="post" style="display: inline;">
                     <button type="submit">Edit</button>
                 </form>
-                <form action="/delete" method="post" style="display:inline;">
+                <form action="${pageContext.request.contextPath}/workPlan/delete" method="post" style="display: inline;" onsubmit="return confirm('Are you sure you want to delete this plan?');">
                     <input type="hidden" name="plan_id" value="${workPlan.plan_id}">
                     <button type="submit">Delete</button>
                 </form>
@@ -120,7 +119,7 @@
     </c:forEach>
 
     <div class="add-plan">
-        <form action="/add" method="post">
+        <form action="${pageContext.request.contextPath}/workPlan/addPlan" method="post">
             <input type="text" name="title" placeholder="Title" required>
             <input type="text" name="description" placeholder="Description" required>
             <input type="date" name="startDate" required>
@@ -130,12 +129,13 @@
                 <option value="Ongoing">Ongoing</option>
                 <option value="Completed">Completed</option>
             </select>
-            <button type="submit">Add</button>
+            <input type="hidden" name="user_id" value="1"> <!-- Adjust the value as needed -->
+            <button type="submit">Add Plan</button>
         </form>
     </div>
 
     <div class="back-link">
-        <a href="/menu">Back</a>
+        <a href="${pageContext.request.contextPath}/menu">Back to Menu</a>
     </div>
 </div>
 

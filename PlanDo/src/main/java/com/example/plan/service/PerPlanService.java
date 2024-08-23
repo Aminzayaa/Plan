@@ -21,7 +21,10 @@ public interface PerPlanService {
     }
     public void deletePlan(int plan_id);
 
-    List<PerPlan> findPlansByUserId(Integer user_id);
+   
+    public default List<PerPlan> findPlansByUserId(Integer user_id) {
+        return perPlanDao.findPlansByUserId(user_id); // Adjust this method call according to your DAO implementation
+    }
 
     PerPlan findPlanById(int plan_id); 
     
@@ -31,4 +34,5 @@ public interface PerPlanService {
 
     public void save(PerPlan newPlan);
 
+    
 }

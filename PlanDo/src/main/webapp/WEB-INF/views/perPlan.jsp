@@ -98,13 +98,12 @@
 <div class="container">
     <h1>Personal Plan</h1>
 
-    <!-- Existing Plan List -->
+    
     <c:forEach items="${perPlanList}" var="perPlan">
         <div class="plan-card">
             <h2>${fn:escapeXml(perPlan.title)}</h2>
             <p>${fn:escapeXml(perPlan.description)}</p>
-            <div class="dates">Start Date: ${fn:escapeXml(perPlan.startDate)}</div>
-            <div class="dates">End Date: ${fn:escapeXml(perPlan.endDate)}</div>
+            <p class="dates">Start Date: ${fn:escapeXml(perPlan.startDate)} | End Date: ${fn:escapeXml(perPlan.endDate)}</p>
             <div class="status">Status: ${fn:escapeXml(perPlan.status)}</div>
             <div class="actions">
                 <form action="${pageContext.request.contextPath}/edit" method="post" style="display: inline;">
