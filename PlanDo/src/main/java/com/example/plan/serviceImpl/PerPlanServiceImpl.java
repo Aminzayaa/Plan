@@ -19,7 +19,34 @@ public class PerPlanServiceImpl implements PerPlanService {
     public List<PerPlan> findAll() {
         return perPlanDao.findAll();
     }
+    @Override
+    public List<PerPlan> findByUserId(Long plan_id) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'findByUserId'");
+    }
+    @Override
+    public void deletePlan(int plan_id) {
+        perPlanDao.deleteByPlanId(plan_id);
+    }
 
- 
+    @Override
+    public List<PerPlan> findPlansByUserId(Integer user_id) {
+        return perPlanDao.findPlansByUserId(user_id);
+    }
+
+    @Override
+    public PerPlan findPlanById(int plan_id) {
+        return perPlanDao.findById(plan_id);
+    }
+
+    @Override
+    public void edit(PerPlan perPlan) {
+        perPlanDao.update(perPlan);  
+    }
+
+    @Override
+    public void addPlan(PerPlan perPlan) {
+        perPlanDao.add(perPlan); 
+    }
  
 }

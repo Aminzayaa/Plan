@@ -5,12 +5,15 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+
 import com.example.plan.entity.WorkPlan;
 
 @Service
 public interface WorkPlanService {
 
-	public List<WorkPlan> findAll();
-    
+	PerPlanService perPlanDao = null;
 
+    public List<WorkPlan> findAll();
+
+    
 }

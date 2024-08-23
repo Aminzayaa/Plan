@@ -3,8 +3,8 @@ package com.example.plan.entity;
 import java.time.LocalDate;
 
 public class WorkPlan {
-    private int planId;
-    private int userId;
+    private int plan_id;
+    private int user_id;
     private String title;
     private String description;
     private LocalDate startDate;
@@ -12,20 +12,20 @@ public class WorkPlan {
     private String status;
 
     // Getters and Setters
-    public int getPlanId() {
-        return planId;
+    public int getPlan_id() {
+        return plan_id;
     }
 
-    public void setPlanId(int planId) {
-        this.planId = planId;
+    public void setPlan_id(int plan_id) {
+        this.plan_id = plan_id;
     }
 
-    public int getUserId() {
-        return userId;
+    public int getUser_id() {
+        return user_id;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setUser_id(int user_id) {
+        this.user_id = user_id;
     }
 
     public String getTitle() {

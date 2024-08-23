@@ -24,9 +24,6 @@ public class WorkPlanController {
 	 @Autowired
 	    private WorkPlanService workPlanService;
 
-    
-		
-
 	    @GetMapping("/workPlan")
 	    public String workPlan(Model model) {
 	        List<WorkPlan> workPlanList = workPlanService.findAll();

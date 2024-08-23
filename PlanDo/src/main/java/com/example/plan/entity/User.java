@@ -73,4 +73,14 @@ public class User {
     public String getUser() {
         return "User [id=" + user_id + ", name=" + name + ", login_id=" + login_id + ", email=" + email + ", phone_number=" + phone_number + ",]";
     }
+
+    public Object getPlanId() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getPlanId'");
+    }
+
+    public Integer getUser_id() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getUser_id'");
+    }
 }
